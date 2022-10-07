@@ -16,11 +16,22 @@ export default function App() {
     color: 'white',
   }
 
+
+  let sub = (event) => {
+    event.preventDefault()
+    let valor1 = event.target[0].value
+    let valor2 = event.target[1].value
+
+    let valores = valor1 + valor2;
+    document.getElementById('span').textContent = valores;
+    
+  }
+
   return (
     <div>
         <h1 className="text-center">Login</h1>
         <hr/>
-        <form>
+        <form onSubmit={sub}>
           <input className="form" type="text" placeholder="Email" />
           <input className="form" type="text" placeholder="Senha" />
           <button style={ estilo }>Entrar</button>
@@ -29,6 +40,7 @@ export default function App() {
             Cadastrar
           </Button>
         </form>
+        <span id="span"></span>
         <Tabela/>
     </div>
   );
